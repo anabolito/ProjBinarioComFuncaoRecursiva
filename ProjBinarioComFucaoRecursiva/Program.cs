@@ -25,7 +25,7 @@
 
             int i;
             
-            for ( i = 0; i <= 7; i--)
+            for ( i = 0; i <= 7; i++)
             {
                 posicao[i] = divPorDois(n);
                 if (n % 2 == 1)
