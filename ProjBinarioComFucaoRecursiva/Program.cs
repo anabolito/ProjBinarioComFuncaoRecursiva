@@ -2,47 +2,27 @@
 {
     private static void Main(string[] args)
     {
-        int nDecimal;
-        int nBinario;
-        int[] posicao = new int[8];
+        int numero, i = 7;
+        int[] bin = new int[8];
+        Console.Write("Informe o valor a ser convertido em binário: ");
+        numero = int.Parse(Console.ReadLine());
 
-        Console.Write("Informe um valor inteiro para ser convertido em binário: ");
-        nDecimal = int.Parse(Console.ReadLine());
-        nBinario = binario(nDecimal);
-        Console.WriteLine(nBinario);
+        binario(numero);
 
-        int divPorDois(int n)
+        for (i = 0; i < 8; i++)
         {
-            if (n / 2 == 1)
-                return 0;
-            else
-                return n % 2;                
+            Console.Write(bin[i]);
         }
-
-        int binario(int n)
+        int binario(int numero)
         {
-            Console.Write("A conversão do número decimal " + n + " para binário é ");
-
-            int i;
-            
-            for ( i = 0; i <= 7; i++)
+            if (numero > 0)
             {
-                posicao[i] = divPorDois(n);
-                if (n % 2 == 1)
-                    n = (n - 1) / 2;
-                else
-                    if (n / 2 > 0)
-                    n = n / 2;
-                    else
-                    n = 2;
+                bin[i] = numero % 2;
+                i--;
+                return binario(numero / 2);
             }
-            Console.Write(posicao[0]);
-            for ( i=7; i > 0; i--)
-            {
-                Console.Write(posicao[i]);
-            }               
-            return n;
+            return 0;
         }
     }
 }
-// binário de 141 : 10001101
+
